@@ -37,6 +37,21 @@ class Services {
         $sql = "SELECT * FROM Paciente WHERE ID = $id";
         return mysqli_query($this->db,$sql);
     }
+
+    public function getCandidatos($id, $paciente) {
+        $prioridad = $paciente['Prioridad'];
+        $sql = "SELECT m.* FROM Paciente AS m WHERE m.Prioridad > $prioridad AND m.Prioridad > (SELECT COUNT(*) FROM Equipos WHERE IDPaciente = $id)";
+        return mysqli_query($this->db,$sql);
+    }
+
+    public function updateEquipo($idEquipo,$idNuevo) {
+        $sql = "UPDATE Equipos SET IDPaciente = $idNuevo WHERE ID = $idEquipo ";
+        if(mysqli_query($this->db,$sql)){
+            return "Equipo actualizado";
+        } else{
+            return "Hubo un error actualizando el equipo";
+        }
+    }
 }
 
 ?>

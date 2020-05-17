@@ -25,5 +25,17 @@ class ControllerEquipos {
         $services = new Services();
         return mysqli_fetch_array($services->getPaciente($id)); 
     }
+
+    public function getCandidatos($id, $paciente) {
+        require_once("../models/Equipos.php");
+        $services = new Services();
+        return $services->getCandidatos($id, $paciente); 
+    }
+
+    public function updateEquipo($idEquipo,$idNuevo) {
+        require_once("../models/Equipos.php");
+        $services = new Services();
+        return $services->updateEquipo($idEquipo,$idNuevo); 
+    }
 }
 ?>

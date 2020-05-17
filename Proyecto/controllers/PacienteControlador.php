@@ -14,6 +14,12 @@ class ControllerPacientes {
         return mysqli_fetch_array($services->getMedico($id)); 
     }
 
+    public function getPaciente($id) {
+        require_once("../models/Pacientes.php");
+        $services = new Service();
+        return mysqli_fetch_array($services->getPaciente($id)); 
+    }
+
     public function getEquipos($id) {
         require_once("../models/Equipos.php");
         $services = new Services();

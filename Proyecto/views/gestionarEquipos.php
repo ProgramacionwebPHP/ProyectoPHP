@@ -38,7 +38,7 @@
                             if( $fila ['IDPaciente'] != null){
                                 $paciente = $nuevo-> getPaciente($fila ['IDPaciente']);
                                 $str_datos .= "<tr>";
-                                $str_datos .= "<td>". $fila ['Nombre'] . "</td><td>". $paciente ['Nombre'] . "</td><td> <a href=\"equipos.php?user=". $usuario."&equipo=".$fila ['ID']."\"><i class=\"fa fa-plus-square-o\"></i> Cambiar asignacion del equipo</a></>" ;
+                                $str_datos .= "<td>". $fila ['Nombre'] . "</td><td>". $paciente ['Nombre'] . "</td><td> <a href=\"cambiarAsignacionEquipo.php?user=". $usuario."&equipo=".$fila ['ID']."&paciente=".$paciente ['ID']."\"><i class=\"fa fa-plus-square-o\"></i> Cambiar asignacion del equipo</a></>" ;
                                 $str_datos .= "</tr>";
                             }
                             else{
