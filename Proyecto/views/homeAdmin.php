@@ -26,8 +26,9 @@ $usuario = $_REQUEST['user'];
                 <li><a href="inicioAdmin.php?user=<?php echo $usuario; ?>">Inicio</a></li>
                 <li><a href="habitaciones.php?user=<?php echo $usuario; ?>">Agregar habitacion</a></li>
                 <li><a href="camas.php?user=<?php echo $usuario; ?>">Agregar camas</a></li>
-                <li><a href="#">Consultar pacientes</a></li>
-                <li><a href="#">Gestionar equipos</a></li>
+                <li><a href="pacientes.php?user=<?php echo $usuario; ?>">Consultar pacientes</a></li>
+                <li><a href="gestionarEquipos.php?user=<?php echo $usuario; ?>">Gestionar equipos</a></li>
+                <li><a href="gestionarRecursos.php?user=<?php echo $usuario; ?>">Gestionar recursos</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $usuario; ?></a></li>

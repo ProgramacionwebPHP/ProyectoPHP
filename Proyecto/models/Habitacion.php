@@ -2,11 +2,9 @@
 
 class Service {
     
-    private $servicio;
     private $db;
 
     public function __construct() {
-        $this->servicio = array();
         include_once('../config/config.php') ;
         $this->db = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
     }
@@ -29,11 +27,20 @@ class Service {
     public function crearCama($id) {
         $sql = "INSERT INTO Cama (Disponible,IDHabitacion) VALUES (1,$id)";
         if(mysqli_query($this->db,$sql)){
-            return "Cama creada con exito";
+            if($this->updateHabitacion(1,$id)){
+                return "Cama creada con exito";
+            }else{
+                return "Error creando la cama";
+            } 
         }
         else{
             return "Error creando la cama";
         }
+    }
+
+    public function updateHabitacion($estado, $id){
+        $sql = "UPDATE Habitacion SET Disponible = $estado WHERE ID = $id";
+        return mysqli_query($this->db,$sql);
     }
 
 }

@@ -101,11 +101,27 @@
     ID INT NOT NULL AUTO_INCREMENT, 
     PRIMARY KEY(ID),
     Nombre CHAR(15),
+    NumeroUnidades INTEGER,
+    NumeroUnidadesDisponibles INTEGER
+  )";
+  if (mysqli_query($con, $sql)) {
+      echo "Tabla Recursos creada correctamente<br>";
+  } else {
+      echo "Error en la creacion " . mysqli_error($con) . "<br>";
+  }
+  /**
+  *Creacion de la tabla pacienterecursos
+  * 
+  */
+  $sql = "CREATE TABLE PacienteRecursos 
+  (
+    IDRecurso INTEGER,
+    FOREIGN KEY(IDRecurso) REFERENCES Recursos(ID),
     IDPaciente INTEGER,
     FOREIGN KEY(IDPaciente) REFERENCES Paciente(ID)
   )";
   if (mysqli_query($con, $sql)) {
-      echo "Tabla Recursos creada correctamente<br>";
+      echo "Tabla PacienteRecursos creada correctamente<br>";
   } else {
       echo "Error en la creacion " . mysqli_error($con) . "<br>";
   }

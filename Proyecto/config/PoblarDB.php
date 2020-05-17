@@ -84,63 +84,28 @@
     *Creacion de recursos
     * 
     */
-    $sql = "INSERT INTO Recursos (Nombre,IDPaciente) VALUES ('anestesia',1)";
+    $sql = "INSERT INTO Recursos (Nombre,NumeroUnidades,NumeroUnidadesDisponibles) VALUES ('anestesia',2,0)";
     if(mysqli_query($con,$sql)){
         echo "recurso creado <br>";
     }
     else{
         echo "Error creando el recurso <br>";
     }
-    $sql = "INSERT INTO Recursos (Nombre,IDPaciente) VALUES ('desinflamatorio',1)";
+    $sql = "INSERT INTO Recursos (Nombre,NumeroUnidades,NumeroUnidadesDisponibles) VALUES ('desinflamatorio',2,1)";
     if(mysqli_query($con,$sql)){
         echo "recurso creado <br>";
     }
     else{
         echo "Error creando el recurso <br>";
     }
-    $sql = "INSERT INTO Recursos (Nombre,IDPaciente) VALUES ('unidadesDeMascaras',2)";
+    $sql = "INSERT INTO Recursos (Nombre,NumeroUnidades,NumeroUnidadesDisponibles) VALUES ('unidadesDeMascaras',3,1)";
     if(mysqli_query($con,$sql)){
         echo "recurso creado <br>";
     }
     else{
         echo "Error creando el recurso <br>";
     }
-    $sql = "INSERT INTO Recursos (Nombre,IDPaciente) VALUES ('Aspirina',2)";
-    if(mysqli_query($con,$sql)){
-        echo "recurso creado <br>";
-    }
-    else{
-        echo "Error creando el recurso <br>";
-    }
-    $sql = "INSERT INTO Recursos (Nombre) VALUES ('Aspirina')";
-    if(mysqli_query($con,$sql)){
-        echo "recurso creado <br>";
-    }
-    else{
-        echo "Error creando el recurso <br>";
-    }
-    $sql = "INSERT INTO Recursos (Nombre) VALUES ('Aspirina')";
-    if(mysqli_query($con,$sql)){
-        echo "recurso creado <br>";
-    }
-    else{
-        echo "Error creando el recurso <br>";
-    }
-    $sql = "INSERT INTO Recursos (Nombre,IDPaciente) VALUES ('desinflamatorio',2)";
-    if(mysqli_query($con,$sql)){
-        echo "recurso creado <br>";
-    }
-    else{
-        echo "Error creando el recurso <br>";
-    }
-    $sql = "INSERT INTO Recursos (Nombre) VALUES ('desinflamatorio')";
-    if(mysqli_query($con,$sql)){
-        echo "recurso creado <br>";
-    }
-    else{
-        echo "Error creando el recurso <br>";
-    }
-    $sql = "INSERT INTO Recursos (Nombre) VALUES ('anestesia')";
+    $sql = "INSERT INTO Recursos (Nombre,NumeroUnidades,NumeroUnidadesDisponibles) VALUES ('Aspirina',10,9)";
     if(mysqli_query($con,$sql)){
         echo "recurso creado <br>";
     }
@@ -199,5 +164,45 @@
     }
     else{
         echo "Error creando el equipo <br>";
+    }
+    /**
+    *Creacion de PacienteRecursos
+    * 
+    */
+    $sql = "INSERT INTO PacienteRecursos (IDRecurso,IDPaciente) VALUES (1,1)";
+    if(mysqli_query($con,$sql)){
+        echo "PacienteRecursos creado <br>";
+    } else{
+        echo "Error creando el PacienteRecursos <br>";
+    }
+    $sql = "INSERT INTO PacienteRecursos (IDRecurso,IDPaciente) VALUES (1,2)";
+    if(mysqli_query($con,$sql)){
+        echo "PacienteRecursos creado <br>";
+    } else{
+        echo "Error creando el PacienteRecursos <br>";
+    }
+    $sql = "INSERT INTO PacienteRecursos (IDRecurso,IDPaciente) VALUES (3,1)";
+    if(mysqli_query($con,$sql)){
+        echo "PacienteRecursos creado <br>";
+    } else{
+        echo "Error creando el PacienteRecursos <br>";
+    }
+    $sql = "INSERT INTO PacienteRecursos (IDRecurso,IDPaciente) VALUES (3,2)";
+    if(mysqli_query($con,$sql)){
+        echo "PacienteRecursos creado <br>";
+    } else{
+        echo "Error creando el PacienteRecursos <br>";
+    }
+    $sql = "INSERT INTO PacienteRecursos (IDRecurso,IDPaciente) VALUES (2,1)";
+    if(mysqli_query($con,$sql)){
+        echo "PacienteRecursos creado <br>";
+    } else{
+        echo "Error creando el PacienteRecursos <br>";
+    }
+    $sql = "INSERT INTO PacienteRecursos (IDRecurso,IDPaciente) VALUES (4,2)";
+    if(mysqli_query($con,$sql)){
+        echo "PacienteRecursos creado <br>";
+    } else{
+        echo "Error creando el PacienteRecursos <br>";
     }
 ?>

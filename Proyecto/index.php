@@ -10,8 +10,9 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['cont
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Ejemplo MVC con PHP</title>
+        <title>ProyectoPHP</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -40,7 +41,7 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['cont
                 <div class="col-lg-6 ">
                     <hr/>
                     <h3>Usuarios Nuevos</h3>
-                    <a href="controllers/registrarControlador.php"><i class="fa fa-align-justify"></i> registrase!</a>
+                    <a href="controllers/registrarControlador.php"><i class="fa fa-arrow-circle-right"></i> registrase!</a>
                     <hr/>
                 </div> 
             </div>

@@ -7,7 +7,7 @@ class Service {
 
     public function __construct() {
         $this->servicio = array();
-        include_once('../config/config.php') ;
+        include_once('config/config.php') ;
         $this->db = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
     }
 
