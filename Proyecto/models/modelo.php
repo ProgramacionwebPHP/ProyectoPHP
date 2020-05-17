@@ -26,9 +26,17 @@ class Service {
         $this->db = null;
     }
 
+    public function getHabitaciones() {
+        $sql = "SELECT * FROM Habitacion";
+        return mysqli_query($this->db,$sql);
+    }
+
     public function setServicio($nombre, $precio) {
         echo $nombre;
         return true;
+    }
+    public function login($usuario,$contraseña) {
+        return 3;
     }
 }
 ?>

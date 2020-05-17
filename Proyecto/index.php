@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['precio'])) && ($_POST['precio'] != '')) {
-
-    include "models/modelo.php";
-    $nuevo = new Service();
-    $asd = $nuevo->setServicio($_POST['nombre'], $_POST['precio']);
+$mensaje = "";
+if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['contraseña'])) && ($_POST['contraseña'] != '')) {
+    include "controllers/indexControlador.php";
+    $nuevo = new ControllerIndex ();
+    $mensaje = $nuevo->login($_POST['nombre'], $_POST['contraseña']);
 }
 ?>
 <html>
@@ -31,7 +31,8 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['prec
                     <form action="#" method="post" class="col-lg-5">
                         <h3>Iniciar Sesion</h3>                
                         Usuario <input type="text" name="nombre" class="form-control"/>    
-                        Contraseña: <input type="text" name="precio" class="form-control"/>    
+                        Contraseña: <input type="text" name="contraseña" class="form-control"/>   
+                        <span class="help-block"><?php echo $mensaje?></span>  
                         <br/>
                         <input type="submit" value="Ingresar" class="btn btn-success"/>
                     </form>

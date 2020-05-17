@@ -10,7 +10,7 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['emai
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Ejemplo MVC con PHP</title>
+        <title>ProyectoPHP</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
