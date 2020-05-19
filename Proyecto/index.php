@@ -30,9 +30,18 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['cont
                 <div class="col-md-8 ">
 
                     <form action="#" method="post" class="col-lg-5">
-                        <h3>Iniciar Sesion</h3>                
-                        Usuario <input type="text" name="nombre" class="form-control"/>    
-                        Contraseña: <input type="text" name="contraseña" class="form-control"/>   
+                        <h3>Iniciar Sesion</h3> 
+                        Nombre:  
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="email" type="text" class="form-control" name="nombre" placeholder="Nombre">
+                        </div>   
+                        <br> 
+                        Contraseña:
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="password" type="password" class="form-control" name="contraseña" placeholder="Contraseña">
+                        </div>   
                         <span class="help-block"><?php echo $mensaje?></span>  
                         <br/>
                         <input type="submit" value="Ingresar" class="btn btn-success"/>

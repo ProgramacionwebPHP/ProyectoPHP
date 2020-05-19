@@ -1,6 +1,6 @@
 <?php
 
-class Service {
+class Habitacion {
     
     private $db;
 
@@ -43,5 +43,25 @@ class Service {
         return mysqli_query($this->db,$sql);
     }
 
+    public function getCamas($id) {
+        $sql = "SELECT * FROM Cama WHERE IDHabitacion = $id";
+        return mysqli_query($this->db,$sql);
+    }
+
+    public function getHabitacionByIdCama($id){
+        $sql = "SELECT * FROM Cama  WHERE ID = $id";
+        return mysqli_query($this->db,$sql);
+    }
+
+    public function updateHabitacionPaciente($id){
+        $sql = "UPDATE Habitacion SET Disponible = 0 WHERE ID = $id AND  1 > (SELECT COUNT(*) FROM Cama AS m  WHERE m.IDHabitacion = $id AND m.Disponible = 1) ";
+        return mysqli_query($this->db,$sql);
+    }
+
+    public function updateCama($id){
+        $sql = "UPDATE Cama SET Disponible = 0 WHERE ID = $id";
+        return mysqli_query($this->db,$sql);
+    }
+    
 }
 ?>

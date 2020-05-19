@@ -5,7 +5,7 @@
     *Creacion de Habitaciones
     * 
     */
-    $sql = "INSERT INTO Habitacion (Disponible) VALUES (2)";
+    $sql = "INSERT INTO Habitacion (Disponible) VALUES (0)";
     if(mysqli_query($con,$sql)){
         echo "Habitacion creada <br>";
     }
@@ -23,14 +23,14 @@
     *Creacion de Camas
     * 
     */
-    $sql = "INSERT INTO Cama (Disponible,IDHabitacion) VALUES (2,1)";
+    $sql = "INSERT INTO Cama (Disponible,IDHabitacion) VALUES (0,1)";
     if(mysqli_query($con,$sql)){
         echo "Cama creada <br>";
     }
     else{
         echo "Error creando la cama <br>";
     }
-    $sql = "INSERT INTO Cama (Disponible,IDHabitacion) VALUES (2,1)";
+    $sql = "INSERT INTO Cama (Disponible,IDHabitacion) VALUES (0,1)";
     if(mysqli_query($con,$sql)){
         echo "Cama creada <br>";
     }

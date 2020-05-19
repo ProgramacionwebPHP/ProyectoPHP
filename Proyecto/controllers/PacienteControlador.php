@@ -8,6 +8,12 @@ class ControllerPacientes {
         return $services->getPacientes();
     }
 
+    public function getPacientesById($id) {
+        require_once("../models/Pacientes.php");
+        $services = new Service();
+        return $services->getPacientesById($id);
+    }
+
     public function getMedico($id) {
         require_once("../models/Pacientes.php");
         $services = new Service();
@@ -24,6 +30,11 @@ class ControllerPacientes {
         require_once("../models/Equipos.php");
         $services = new Services();
         return $services->getEquiposId($id); 
+    }
+    public function agregarPaciente($nombre,$identificacion,$diagnostico,$prioridad,$fecha,$dias,$habitacion,$cama,$medico){
+        require_once("../models/Pacientes.php");
+        $services = new Service();
+        return $services->agregarPaciente($nombre,$identificacion,$diagnostico,$prioridad,$fecha,$dias,$habitacion,$cama,$medico); 
     }
 }
 ?>

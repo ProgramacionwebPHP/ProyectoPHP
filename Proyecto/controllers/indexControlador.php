@@ -10,10 +10,8 @@ class ControllerIndex {
             return "Credenciales incorrectas";
         }
         else{
-            require_once("models/modelo.php");
-            $services = new Service();
             $datos = $services->getServicios();
-            Header("Location: views/inicioAdmin.php?user=".$usuario);
+            Header("Location: views/inicioMedico.php?user=".$usuario);
             
         }
     }
