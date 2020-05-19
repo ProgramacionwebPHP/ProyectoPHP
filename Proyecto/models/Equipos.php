@@ -40,7 +40,7 @@ class Services {
 
     public function getCandidatos($id, $paciente) {
         $prioridad = $paciente['Prioridad'];
-        $sql = "SELECT m.* FROM Paciente AS m WHERE m.Prioridad > $prioridad AND m.Prioridad > (SELECT COUNT(*) FROM Equipos WHERE IDPaciente = $id)";
+        $sql = "SELECT m.* FROM Paciente AS m WHERE m.Prioridad > $prioridad AND m.Prioridad > (SELECT COUNT(*) FROM Equipos WHERE IDPaciente = m.ID)";
         return mysqli_query($this->db,$sql);
     }
 
