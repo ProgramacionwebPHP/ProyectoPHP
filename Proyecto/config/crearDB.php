@@ -168,8 +168,8 @@
   */
   $sql = "CREATE TABLE MensajesEquipos
   (
-    IDEquipo INTEGER,
-    FOREIGN KEY(IDEquipo) REFERENCES Equipos(ID),
+    IDMensaje INTEGER,
+    FOREIGN KEY(IDMensaje) REFERENCES Mensajes(ID),
     IDPaciente INTEGER,
     FOREIGN KEY(IDPaciente) REFERENCES Paciente(ID)
   )";
