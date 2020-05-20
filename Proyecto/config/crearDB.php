@@ -143,4 +143,39 @@
   } else {
       echo "Error en la creacion " . mysqli_error($con) . "<br>";
   }
+  /**
+  *Creacion de la tabla mensajes
+  * 
+  */
+  $sql = "CREATE TABLE Mensajes
+  (
+    ID INT NOT NULL AUTO_INCREMENT, 
+    PRIMARY KEY(ID),
+    IDPaciente INTEGER,
+    FOREIGN KEY(IDPaciente) REFERENCES Paciente(ID),
+    IDMedico INTEGER,
+    FOREIGN KEY(IDMedico) REFERENCES Medico(ID),
+    Fecha DATETIME
+  )";
+  if (mysqli_query($con, $sql)) {
+      echo "Tabla Mensajes creada correctamente<br>";
+  } else {
+      echo "Error en la creacion de la tabla mensajes" . mysqli_error($con) . "<br>";
+  }
+  /**
+  *Creacion de la tabla mensajesEquipos
+  * 
+  */
+  $sql = "CREATE TABLE MensajesEquipos
+  (
+    IDEquipo INTEGER,
+    FOREIGN KEY(IDEquipo) REFERENCES Equipos(ID),
+    IDPaciente INTEGER,
+    FOREIGN KEY(IDPaciente) REFERENCES Paciente(ID)
+  )";
+  if (mysqli_query($con, $sql)) {
+      echo "Tabla MensajesEquipos creada correctamente<br>";
+  } else {
+      echo "Error en la creacion de la tabla mensajes" . mysqli_error($con) . "<br>";
+  }
 ?>

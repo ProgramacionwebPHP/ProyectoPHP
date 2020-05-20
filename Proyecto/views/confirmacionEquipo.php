@@ -3,7 +3,6 @@
     $idpaciente = $_REQUEST['paciente'];
     $idequipo = $_REQUEST['equipo'];
     require_once("homeMedico.php");
-    include "../controllers/PacienteControlador.php";
     $nuevo = new ControllerPacientes ();
     $datos = $nuevo-> getEquipos($idpaciente);
     $paciente = $nuevo-> getPaciente($idpaciente);
@@ -21,7 +20,7 @@
           }else{
             include_once("../controllers/EquiposControlador.php") ;
             $nuevo = new ControllerEquipos();
-            $nuevo->updateEquipo($idequipo,NULL);
+            $nuevo->updateEquipoToNull($idequipo,NULL);
             Header("Location: verPacientes.php?user=".$usuario);
           }
         }

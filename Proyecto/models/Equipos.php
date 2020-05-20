@@ -57,6 +57,14 @@ class Services {
             return "Hubo un error actualizando el equipo";
         }
     }
+    public function updateEquipoToNull($idEquipo) {
+        $sql = "UPDATE Equipos SET IDPaciente = NULL WHERE ID = $idEquipo ";
+        if(mysqli_query($this->db,$sql)){
+            return "Equipo actualizado";
+        } else{
+            return "Hubo un error actualizando el equipo";
+        }
+    }
 }
 
 ?>

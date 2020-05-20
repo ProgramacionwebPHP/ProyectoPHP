@@ -2,7 +2,6 @@
     $usuario = $_REQUEST['user'];
     $idpaciente = $_REQUEST['paciente'];
     require_once("homeMedico.php");
-    $nuevo = new ControllerPacientes ();
     $datos = $nuevo-> getEquipos($idpaciente);
     $paciente = $nuevo-> getPaciente($idpaciente);
 ?>

@@ -43,5 +43,11 @@ class ControllerEquipos {
         $services = new Services();
         return $services->updateEquipo($idEquipo,$idNuevo); 
     }
+
+    public function updateEquipoToNull($idEquipo) {
+        require_once("../models/Equipos.php");
+        $services = new Services();
+        return $services->updateEquipoToNull($idEquipo); 
+    }
 }
 ?>

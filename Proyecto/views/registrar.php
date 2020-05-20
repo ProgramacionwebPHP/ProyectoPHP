@@ -39,8 +39,8 @@
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
                         <h3>Formulario</h3>                
                         Nombre: <input type="text" name="nombre" class="form-control"/>    
-                        email: <input type="text" name="emails" class="form-control"/>    
-                        Confirmar email: <input type="text" name="c-emails" class="form-control"/>    
+                        email: <input type="email" name="emails" class="form-control"/>    
+                        Confirmar email: <input type="email" name="c-emails" class="form-control"/>    
                         Contraseña: <input type="password" name="contraseña" class="form-control"/>    
                         <br/>
                         <span class="help-block"><?php echo $mensaje?></span>  
