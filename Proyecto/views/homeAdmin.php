@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
-$usuario = $_REQUEST['user'];
+    $usuario = $_REQUEST['user'];
+    include "../controllers/PacienteControlador.php";
+    $nuevo = new ControllerPacientes ();
+    $medico = $nuevo-> getMedico($usuario);
 ?>
 <html>
     <head>
@@ -19,11 +22,10 @@ $usuario = $_REQUEST['user'];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="#">Administrador</a>
+            <a class="navbar-brand" href="inicioAdmin.php?user=<?php echo $usuario; ?>">Administrador</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="inicioAdmin.php?user=<?php echo $usuario; ?>">Inicio</a></li>
                 <li><a href="habitaciones.php?user=<?php echo $usuario; ?>">Agregar habitacion</a></li>
                 <li><a href="camas.php?user=<?php echo $usuario; ?>">Agregar camas</a></li>
                 <li><a href="pacientes.php?user=<?php echo $usuario; ?>">Consultar pacientes</a></li>
@@ -31,7 +33,8 @@ $usuario = $_REQUEST['user'];
                 <li><a href="gestionarRecursos.php?user=<?php echo $usuario; ?>">Gestionar recursos</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $usuario; ?></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Mensajes</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $medico['Nombre']; ?></a></li>
                 <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
             </div>

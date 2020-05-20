@@ -41,7 +41,7 @@
                 <div class="col-md-4 ">
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?user=".$usuario ."&recurso=".$idRecurso);?>"> 
                         <h3>Ingrese la cantidad de unidades : </h3>     
-                        Cantidad de unidades: <input type="number" name="cantidad" class="form-control"/>                  
+                        Cantidad de unidades: <input type="number" name="cantidad" class="form-control" min="0"/>                  
                         <br/>
                         <span class="error">* <?php echo $OpcionErr;?></span>
                         <br/>

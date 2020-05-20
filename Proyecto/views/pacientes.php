@@ -1,7 +1,6 @@
 <?php
     $usuario = $_REQUEST['user'];
     require_once("homeAdmin.php");
-    include "../controllers/PacienteControlador.php";
     $nuevo = new ControllerPacientes ();
     $datos = $nuevo-> getPacientes();
 ?>

@@ -60,7 +60,8 @@
     PRIMARY KEY(ID),
     Nombre CHAR(15),
     Email CHAR(15),
-    Contraseña CHAR(15)
+    Contraseña CHAR(15),
+    Rol BIT (1)
   )";
   if (mysqli_query($con, $sql)) {
       echo "Tabla Medico creada correctamente<br>";

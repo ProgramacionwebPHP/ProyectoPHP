@@ -18,6 +18,11 @@ class Services {
         return mysqli_query($this->db,$sql);
     }
 
+    public function getEquiposDisponibles() {     
+        $sql = "SELECT * FROM Equipos WHERE IDPaciente IS NULL";
+        return mysqli_query($this->db,$sql);
+    }
+
     public function getEquipoById($id) {     
         $sql = "SELECT * FROM Equipos WHERE ID = $id";
         return mysqli_fetch_array(mysqli_query($this->db,$sql));

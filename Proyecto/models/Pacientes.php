@@ -37,6 +37,10 @@ class Service {
             return "Error en la creacion del paciente";
         }
     }
+    public function numeroEquiposAsignados($idpaciente){
+        $sql = "SELECT * FROM Equipos WHERE IDPaciente = $idpaciente";
+        return mysqli_num_rows(mysqli_query($this->db,$sql));
+    }
 }
 
 ?>

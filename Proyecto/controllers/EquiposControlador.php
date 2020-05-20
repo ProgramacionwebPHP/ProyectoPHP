@@ -8,6 +8,12 @@ class ControllerEquipos {
         return $services->getEquipos(); 
     }
 
+    public function getEquiposDisponibles() {
+        require_once("../models/Equipos.php");
+        $services = new Services();
+        return $services->getEquiposDisponibles(); 
+    }
+
     public function addEquipo($nombre) {
         require_once("../models/Equipos.php");
         $services = new Services();

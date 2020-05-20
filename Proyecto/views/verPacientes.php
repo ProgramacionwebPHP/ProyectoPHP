@@ -1,9 +1,8 @@
 <?php
     $usuario = $_REQUEST['user'];
     require_once("homeMedico.php");
-    include "../controllers/PacienteControlador.php";
     $nuevo = new ControllerPacientes ();
-    $datos = $nuevo-> getPacientesById(1);
+    $datos = $nuevo-> getPacientesById($usuario);
 ?>
 <html>
     <head>
@@ -30,11 +29,10 @@
                         <th>Nombre</th>
                         <th>Diagnostico</th>
                         <th>Prioridad</th>
-                        <th>Tiempo de duracion</th>
+                        <th>Duracion</th>
                         <th>Fecha de ingreso</th>
                         <th>Habitacion</th>
                         <th>Cama</th>
-                        <th>Medico</th>
                         <th>Equipos asignados</th>
                         <th>Equipos</th>
                         <th>Recursos</th>
@@ -51,11 +49,10 @@
                             } else {
                                 $aux2 = "Alta";
                             }
-                            $medico = $nuevo-> getMedico($fila ['IDMedico']);
                             $str_datos .= "<tr>";
-                            $str_datos .= "<td>". $fila ['Nombre'] . "</td><td>" . $fila ['Diagnostico']. "</td><td>" . $aux2. "</td><td>" . $fila ['TiempoDeDuracion']. " dias</td><td>" . $fila ['FechaDeIngreso']. "</td><td>Nº.". $fila ['IDHabitacion']. "</td><td>Nº." . $fila ['IDCama']. "</td><td>" . $medico ['Nombre']. "</td><td> <a href=\"VerEquipos.php?user=". $usuario."&paciente=".$fila ['ID']."\"><i class=\"far fa-eye\"></i> Ver equipos</a></td>";
-                            $str_datos .= "<td> <a href=\"VerEquipos.php?user=". $usuario."&paciente=".$fila ['ID']."\"><i class=\"far fa-eye\"></i> Agregar Equipos</a></td>";
-                            $str_datos .= "<td> <a href=\"VerEquipos.php?user=". $usuario."&paciente=".$fila ['ID']."\"><i class=\"far fa-eye\"></i> Agregar Recursos</a></td>";
+                            $str_datos .= "<td>". $fila ['Nombre'] . "</td><td>" . $fila ['Diagnostico']. "</td><td>" . $aux2. "</td><td>" . $fila ['TiempoDeDuracion']. " dias</td><td>" . $fila ['FechaDeIngreso']. "</td><td>Nº.". $fila ['IDHabitacion']. "</td><td>Nº." . $fila ['IDCama']. "</td><td> <a href=\"VerEquipos.php?user=". $usuario."&paciente=".$fila ['ID']."\"><i class=\"far fa-eye\"></i> Ver equipos</a></td>";
+                            $str_datos .= "<td> <a href=\"asignacionEquipos.php?user=". $usuario."&paciente=".$fila ['ID']."\"><i class=\"far fa-eye\"></i> Agregar Equipos</a></td>";
+                            $str_datos .= "<td> <a href=\"asignacionRecursos.php?user=". $usuario."&paciente=".$fila ['ID']."\"><i class=\"far fa-eye\"></i> Agregar Recursos</a></td>";
                             $str_datos .= "</tr>"; 
                         }
                         $str_datos .= "</table>";

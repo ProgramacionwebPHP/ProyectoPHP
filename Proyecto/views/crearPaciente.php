@@ -3,7 +3,6 @@
     $cama = $_REQUEST['cama'];
     $habitacion = $_REQUEST['habitacion'];
     require_once("homeMedico.php");
-    include "../controllers/PacienteControlador.php";
     $nuevo = new ControllerPacientes();
     $cantidad = "";
     $OpcionErr = "";
@@ -18,7 +17,7 @@
             $prioridad = $_POST["prioridad"];
             $fecha = $_POST["fecha"];
             $dias = $_POST["dias"];
-            $OpcionErr = $nuevo-> agregarPaciente($nombre,$identificacion,$diagnostico,$prioridad,$fecha,$dias,$habitacion,$cama,1);
+            $OpcionErr = $nuevo-> agregarPaciente($nombre,$identificacion,$diagnostico,$prioridad,$fecha,$dias,$habitacion,$cama,$usuario);
             if($OpcionErr == "Paciente creado con exito"){
                 include "../controllers/CamasControlador.php";
                 $nuevos = new ControllerCamas ();

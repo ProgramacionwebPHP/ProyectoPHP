@@ -48,14 +48,21 @@
     *Creacion de medicos
     * 
     */
-    $sql = "INSERT INTO Medico (Nombre,Email,Contraseña) VALUES ('Johan','johan@gmail.com','123')";
+    $sql = "INSERT INTO Medico (Nombre,Email,Contraseña,Rol) VALUES ('Johan','johan@gmail.com','3DBDE697D71690A',1)";
     if(mysqli_query($con,$sql)){
         echo "Medico creado <br>";
     }
     else{
         echo "Error creando el medico <br>";
     }
-    $sql = "INSERT INTO Medico (Nombre,Email,Contraseña) VALUES ('Juan','juan@gmail.com','123')";
+    $sql = "INSERT INTO Medico (Nombre,Email,Contraseña,Rol) VALUES ('Carlos','carlos@gmail.com','3DBDE697D71690A',0)";
+    if(mysqli_query($con,$sql)){
+        echo "Medico creado <br>";
+    }
+    else{
+        echo "Error creando el medico <br>";
+    }
+    $sql = "INSERT INTO Medico (Nombre,Email,Contraseña,Rol) VALUES ('Juan','juan@gmail.com','3DBDE697D71690A',0)";
     if(mysqli_query($con,$sql)){
         echo "Medico creado <br>";
     }
@@ -66,7 +73,7 @@
     *Creacion de pacientes
     * 
     */
-    $sql = "INSERT INTO Paciente (Nombre,Diagnostico,Prioridad,TiempoDeDuracion,FechaDeIngreso, IDHabitacion, IDCama, IDMedico) VALUES ('Camilo','Diarrea','1','2','2011-03-12',1,1,1)";
+    $sql = "INSERT INTO Paciente (Nombre,Diagnostico,Prioridad,TiempoDeDuracion,FechaDeIngreso, IDHabitacion, IDCama, IDMedico) VALUES ('Camilo','Diarrea','1','2','2011-03-12',1,1,3)";
     if(mysqli_query($con,$sql)){
         echo "Paciente creado <br>";
     }

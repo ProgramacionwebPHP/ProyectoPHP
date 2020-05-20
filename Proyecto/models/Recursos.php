@@ -18,6 +18,11 @@ class Services {
         return mysqli_query($this->db,$sql);
     }
 
+    public function getRecursosDisponibles() {     
+        $sql = "SELECT * FROM Recursos WHERE NumeroUnidadesDisponibles > 0";
+        return mysqli_query($this->db,$sql);
+    }
+
     public function getRecursoById($id) {     
         $sql = "SELECT * FROM Recursos WHERE ID = $id";
         return mysqli_fetch_array(mysqli_query($this->db,$sql));
@@ -38,6 +43,21 @@ class Services {
             return "Recurso creado";
         } else{
             return "Hubo un error creando el Recurso";
+        }
+    }
+
+    public function asignarRecursos($IdRecurso,$cantidad) {   
+        $sql = "SELECT * FROM Recursos WHERE ID = $IdRecurso";  
+        $recurso = mysqli_fetch_array(mysqli_query($this->db,$sql));
+        $c = $recurso['NumeroUnidadesDisponibles'] - $cantidad;
+        if($c < 0 ){
+            return 0;
+        }
+        $sql = "UPDATE Recursos SET NumeroUnidadesDisponibles = $c WHERE ID = $IdRecurso AND NumeroUnidadesDisponibles >= $cantidad";
+        if(mysqli_query($this->db,$sql)){
+            return 1;
+        } else{
+            return 0;
         }
     }
 }

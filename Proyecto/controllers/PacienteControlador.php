@@ -36,5 +36,11 @@ class ControllerPacientes {
         $services = new Service();
         return $services->agregarPaciente($nombre,$identificacion,$diagnostico,$prioridad,$fecha,$dias,$habitacion,$cama,$medico); 
     }
+
+    public function numeroEquiposAsignados($idpaciente){
+        require_once("../models/Pacientes.php");
+        $services = new Service();
+        return $services->numeroEquiposAsignados($idpaciente);
+    }
 }
 ?>

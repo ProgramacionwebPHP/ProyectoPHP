@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <?php
-if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['emails'])) && ($_POST['emails'] != '') && (isset($_POST['c-emails'])) && ($_POST['c-emails'] != '') && (isset($_POST['contraseña'])) && ($_POST['contraseña'] != '')) {
-
-    include "models/modelo.php";
-    $nuevo = new Service();
-    $asd = $nuevo->setServicio($_POST['nombre'], $_POST['emails']);
-}
+    $mensaje = "";
+    if ((isset($_REQUEST['nombre'])) && ($_REQUEST['nombre'] != '') && (isset($_REQUEST['emails'])) && ($_REQUEST['emails'] != '') && (isset($_REQUEST['c-emails'])) && ($_REQUEST['c-emails'] != '') && (isset($_REQUEST['contraseña'])) && ($_REQUEST['contraseña'] != '')) {
+        if($_REQUEST['emails'] == $_REQUEST['c-emails'] ){
+            include "../controllers/indexControlador.php";
+            $nuevo = new ControllerIndex ();
+            $validacion = $nuevo->ValidarUsuario($_REQUEST['nombre']);
+            if($validacion == 1 ){
+                $mensaje = "*Ya existe un usuario con este nombre";
+            }else{
+                $mensaje = $nuevo->CrearUsuario($_REQUEST['nombre'],$_REQUEST['emails'],$_REQUEST['contraseña']);
+            }
+        }else{
+            $mensaje = "*Los correos deben de ser iguales";
+        }
+    }else{
+        $mensaje = "*Debe llenar todos los campos";
+    }
 ?>
 <html>
     <head>
@@ -24,23 +35,23 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['emai
                 <p class="lead">REGISTRATE</p>
             </header>
             <div class="row">
-                <div class="col-md-8 ">
-                    <form action="#" method="post" class="col-lg-5">
+                <div class="col-md-4 ">
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
                         <h3>Formulario</h3>                
                         Nombre: <input type="text" name="nombre" class="form-control"/>    
                         email: <input type="text" name="emails" class="form-control"/>    
-                        Confirmar email: <input type="password" name="c-emails" class="form-control"/>    
+                        Confirmar email: <input type="text" name="c-emails" class="form-control"/>    
                         Contraseña: <input type="password" name="contraseña" class="form-control"/>    
                         <br/>
+                        <span class="help-block"><?php echo $mensaje?></span>  
+                        <br>
                         <input type="submit" value="Crear" class="btn btn-success"/>
                     </form>
                 </div>
-                <div class="col-lg-6 ">
-                    <hr/>
-                    <a href="../index.php"> <i class="fa fa-arrow-circle-left"></i> Volver a la página principal</a>
-                    <hr/>
-                </div> 
             </div>
+           <br>
+            <br>  
+            <a href="../index.php"> <i class="fa fa-arrow-circle-left"></i> Volver a la página principal</a>
             <footer class="col-lg-12 text-center">
                 Colombia - <?php echo date("Y"); ?>
             </footer>
