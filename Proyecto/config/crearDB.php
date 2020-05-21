@@ -170,8 +170,8 @@
   (
     IDMensaje INTEGER,
     FOREIGN KEY(IDMensaje) REFERENCES Mensajes(ID),
-    IDPaciente INTEGER,
-    FOREIGN KEY(IDPaciente) REFERENCES Paciente(ID)
+    IDEquipo INTEGER,
+    FOREIGN KEY(IDEquipo) REFERENCES Equipos(ID)
   )";
   if (mysqli_query($con, $sql)) {
       echo "Tabla MensajesEquipos creada correctamente<br>";

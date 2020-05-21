@@ -28,14 +28,14 @@
         $nombres = $_POST["nombres"];
     }
     if (isset($_POST["guardar"])) {
-        array_pop($nombres);
         if ($nombres[0]== null) {
             Header("Location:../views/verPacientes.php?user=".$usuario);
         } else {
-            /**
-             * Por definir
-             */
+            include "../controllers/MensajesControlador.php";
+            $mensaje = new ControllerMensajes();
+            $datos = $mensaje->crearMensaje($usuario,$idpaciente,$fecha,$nombres);
         }
+        array_pop($nombres);
     }
     ?>
 <html>

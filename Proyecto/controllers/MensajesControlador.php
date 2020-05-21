@@ -7,7 +7,7 @@ class ControllerMensajes {
         $services = new Mensaje();
         $idMensaje = $services->crearMensaje($idMedico,$idpaciente,$fecha);
         foreach ($listEquipos as &$valor) {
-            $services->crearRelacion($idMensaje, $valor); 
+            $services->crearRelacion($idMensaje[0], $valor); 
         }
         Header("Location:../views/verPacientes.php?user=".$idMedico);
     }
