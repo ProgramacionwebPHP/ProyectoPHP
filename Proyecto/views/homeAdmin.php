@@ -33,7 +33,7 @@
                 <li><a href="gestionarRecursos.php?user=<?php echo $usuario; ?>">Gestionar recursos</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Mensajes</a></li>
+                <li><a href="mensajes.php?user=<?php echo $usuario; ?>"><span class="glyphicon glyphicon-envelope"></span> Mensajes</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $medico['Nombre']; ?></a></li>
                 <li><a href="../index.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>

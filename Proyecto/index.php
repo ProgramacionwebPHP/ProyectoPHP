@@ -50,7 +50,7 @@ if ((isset($_POST['nombre'])) && ($_POST['nombre'] != '') && (isset($_POST['cont
                 <div class="col-lg-6 ">
                     <hr/>
                     <h3>Usuarios Nuevos</h3>
-                    <a href="controllers/registrarControlador.php"><i class="fa fa-arrow-circle-right"></i> registrase!</a>
+                    <a href="controllers/registrarControlador.php"><i class="fa fa-arrow-circle-right"></i> Registrate!</a>
                     <hr/>
                 </div> 
             </div>
