@@ -8,12 +8,13 @@ class Mensaje {
         $this->db = mysqli_connect(HOST_DB, USUARIO_DB, USUARIO_PASS, NOMBRE_DB);
     }
 
-    public function crearMensaje($idMedico,$idpaciente, $fecha) {     
-        $sql = "INSERT INTO Mensajes (IDPaciente,IDMedico) VALUES ($idMedico,$idpaciente)";
+    public function crearMensaje($idMedico,$idpaciente, $fecha) {   
+        $sql = "INSERT INTO Mensajes (IDPaciente,IDMedico, Fecha) VALUES ($idpaciente,$idMedico, '$fecha')";
         if(mysqli_query($this->db,$sql)){
             $sql = "SELECT LAST_INSERT_ID()";
             return mysqli_fetch_array(mysqli_query($this->db,$sql));
         } else{
+            echo "Error en la creacion " . mysqli_error($this->db) . "<br>";
             return "Hubo un error creando el mensaje";
         }
     }

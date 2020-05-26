@@ -9,8 +9,8 @@
     $p = $paciente['Prioridad'];
     $prioridad = $p - $nuevo-> numeroEquiposAsignados($idpaciente);
     $medico = $nuevo-> getMedico($usuario);	
-    $hoy = getdate();
-    $fecha = $hoy['year']."-".$hoy['month']."-".$hoy['mday']." ".$hoy['hours'].":".$hoy['minutes'].":".$hoy['seconds'];
+    date_default_timezone_set("America/Bogota");
+    $fecha = date('Y-m-d H:i:s');
     include "../controllers/EquiposControlador.php";
     $nuevo = new ControllerEquipos();
     $datos = $nuevo-> getEquiposDisponibles($idpaciente);
@@ -50,7 +50,7 @@
     <body>
         <div class="container">
         <header class="text-center">
-                <h1>Solicitar Recursos</h1>
+                <h1>Solicitar Equipos</h1>
                 <hr/>
             </header>
             <div class="row">
@@ -60,7 +60,7 @@
                         Nombre del medico: <input type="text" name="nombr" class="form-control" value=" <?php echo $medico ['Nombre']?>" readonly/><br>   
                         Nombre del paciente: <input type="text" name="emails" class="form-control" value="<?php echo $paciente ['Nombre']?>" readonly/> <br>   
                         Hora de la solicitud: <input type="text" name="c-emails" class="form-control" value="<?php echo $fecha?>" readonly/>   <br>   
-                        <h3>Seleccione los recursos y sus unidades</h3> 
+                        <h3>Seleccione los equipos</h3> 
                         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?user=".$usuario."&paciente=".$idpaciente);?>"> 
                             <?php foreach ($nombres as $nombre) { ?>
                                 <?php if (count($nombres)< $prioridad){ ?>

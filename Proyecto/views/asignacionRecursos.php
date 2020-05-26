@@ -6,9 +6,8 @@
     $nuevo = new ControllerPacientes ();
     $paciente = $nuevo-> getPaciente($idpaciente);
     $medico = $nuevo-> getMedico($usuario);	
-    $hoy = getdate();
-    $fecha = $hoy['year']."-".$hoy['month']."-".$hoy['mday']." ".$hoy['hours'].":".$hoy['minutes'].":".$hoy['seconds'];
-    include "../controllers/RecursosControlador.php";
+    date_default_timezone_set("America/Bogota");
+    $fecha = date('Y-m-d H:i:s');
     $nuevo = new ControllerRecursos ();
     $datos = $nuevo-> getRecursosDisponibles();
     $str_datos = "";
