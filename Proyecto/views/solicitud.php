@@ -28,6 +28,7 @@
         $asunto ="Asiganacion de equipos para ".$paciente['Nombre'];//$_POST["asunto"];
         $texto = wordwrap($texto, 70);
         mail($medico['Email'],$asunto,$texto,"From: $de\n");
+        Header("Location: mensajes.php?user=".$usuario);
     }
 ?>
 
